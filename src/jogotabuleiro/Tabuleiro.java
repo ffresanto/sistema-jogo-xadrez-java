@@ -3,13 +3,13 @@ package jogotabuleiro;
 public class Tabuleiro {
 
     private int linhas;
-    private int coluna;
+    private int colunas;
     private Peca[][] pecas;
 
-    public Tabuleiro(int linhas, int coluna) {
+    public Tabuleiro(int linhas, int colunas) {
         this.linhas = linhas;
-        this.coluna = coluna;
-        pecas = new Peca[linhas][coluna];
+        this.colunas = colunas;
+        pecas = new Peca[linhas][colunas];
     }
 
     public int getLinhas() {
@@ -20,11 +20,20 @@ public class Tabuleiro {
         this.linhas = linhas;
     }
 
-    public int getColuna() {
-        return coluna;
+    public int getColunas() {
+        return colunas;
     }
 
-    public void setColuna(int coluna) {
-        this.coluna = coluna;
+    public void setColunas(int colunas) {
+        this.colunas = colunas;
     }
+
+    public Peca peca(int linha, int coluna){
+        return pecas[linha][coluna];
+    }
+
+    public Peca peca(Posicao posicao){
+        return pecas[posicao.getLinha()][posicao.getColuna()];
+    }
+
 }
