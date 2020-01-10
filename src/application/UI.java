@@ -30,6 +30,11 @@ public class UI {
     public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
     public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
+    public static void clearScreen(){
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
     public static PosicaoXadrez lerPosicaoXadrez(Scanner sc){
         try{
             String s = sc.nextLine();
@@ -38,7 +43,7 @@ public class UI {
             return new PosicaoXadrez(coluna,linha);
         }
         catch (RuntimeException e){
-            throw new InputMismatchException("Erro na posição de xadrez. Valor valido apenas a1 a h8.");
+            throw new InputMismatchException("Erro na posicao de xadrez. Valor valido apenas a1 a h8.");
         }
 
     }
