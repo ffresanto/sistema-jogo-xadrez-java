@@ -20,11 +20,11 @@ public class Main {
                 UI.clearScreen();
                 UI.imprimirTabuleiro(partidaXadrez.getPecas());
                 System.out.println();
-                System.out.print("Source: ");
+                System.out.print("Mover: ");
                 PosicaoXadrez source = UI.lerPosicaoXadrez(sc);
 
                 System.out.println();
-                System.out.print("Target: ");
+                System.out.print("Para: ");
                 PosicaoXadrez target = UI.lerPosicaoXadrez(sc);
 
                 PecaXadrez capturarPeca = partidaXadrez.executarMovimentoXadrez(source, target);
@@ -35,10 +35,6 @@ public class Main {
             }
             catch (InputMismatchException e){
                 System.out.println(e.getMessage());
-                sc.nextLine();
-            }
-            catch (NullPointerException e){
-                System.out.println("Nao existe peca na posicao de origem");
                 sc.nextLine();
             }
 
