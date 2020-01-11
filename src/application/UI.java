@@ -1,6 +1,7 @@
 package application;
 
 import xadrez.Cor;
+import xadrez.PartidaXadrez;
 import xadrez.PecaXadrez;
 import xadrez.PosicaoXadrez;
 
@@ -59,6 +60,13 @@ public class UI {
             System.out.println();
         }
         System.out.println("  a b c d e f g h");
+    }
+
+    public static void imprimirPartida(PartidaXadrez partidaXadrez){
+        imprimirTabuleiro(partidaXadrez.getPecas());
+        System.out.println();
+        System.out.println("Turno : " + partidaXadrez.getTurno());
+        System.out.println("Esperando jogador: " + partidaXadrez.getAtualJogador());
     }
 
     public static void imprimirTabuleiro(PecaXadrez[][] pecas, boolean[][] possivelMovimentos){
