@@ -23,6 +23,9 @@ public class Main {
                 System.out.print("Mover: ");
                 PosicaoXadrez source = UI.lerPosicaoXadrez(sc);
 
+                boolean[][] possivelMovimentos = partidaXadrez.possivelMovimentos(source);
+                UI.clearScreen();
+                UI.imprimirTabuleiro(partidaXadrez.getPecas(), possivelMovimentos);
                 System.out.println();
                 System.out.print("Para: ");
                 PosicaoXadrez target = UI.lerPosicaoXadrez(sc);
