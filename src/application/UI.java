@@ -5,8 +5,11 @@ import xadrez.PartidaXadrez;
 import xadrez.PecaXadrez;
 import xadrez.PosicaoXadrez;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class UI {
 
@@ -62,8 +65,10 @@ public class UI {
         System.out.println("  a b c d e f g h");
     }
 
-    public static void imprimirPartida(PartidaXadrez partidaXadrez){
+    public static void imprimirPartida(PartidaXadrez partidaXadrez, List<PecaXadrez> capturado){
         imprimirTabuleiro(partidaXadrez.getPecas());
+        System.out.println();
+        imprimirPecaCapturada(capturado);
         System.out.println();
         System.out.println("Turno : " + partidaXadrez.getTurno());
         System.out.println("Esperando jogador: " + partidaXadrez.getAtualJogador());
@@ -96,5 +101,19 @@ public class UI {
             }
         }
         System.out.print(" ");
+    }
+
+    private static void imprimirPecaCapturada(List<PecaXadrez> capturado){
+        List<PecaXadrez> branca = capturado.stream().filter(x -> x.getCor() == Cor.BRANCO).collect(Collectors.toList());
+        List<PecaXadrez> preto = capturado.stream().filter(x -> x.getCor() == Cor.PRETO).collect(Collectors.toList());
+        System.out.println("Pecas capturadas: ");
+        System.out.print("Branca: ");
+        System.out.print(ANSI_WHITE);
+        System.out.println(Arrays.toString(branca.toArray()));
+        System.out.print(ANSI_RESET);
+        System.out.print("Preto: ");
+        System.out.print(ANSI_YELLOW);
+        System.out.println(Arrays.toString(preto.toArray()));
+        System.out.print(ANSI_RESET);
     }
 }
